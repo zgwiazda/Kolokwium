@@ -15,7 +15,7 @@ public class BookRepository : IBookRepository
     
     public async Task<bool> DoesBookExist(int id)
     {
-        var query = "SELECT 1 FROM books WHERE PK = @id";
+        var query = "SELECT * FROM books WHERE PK = @id";
         await using SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("Default"));
         await using SqlCommand command = new SqlCommand();
 
@@ -97,7 +97,7 @@ public class BookRepository : IBookRepository
     
     public async Task<bool> DoesGenreExist(int id)
     {
-        var query = "SELECT 1 FROM genres WHERE PK = @id";
+        var query = "SELECT * FROM genres WHERE PK = @id";
         await using SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("Default"));
         await using SqlCommand command = new SqlCommand();
 
